@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false, // Added this line to remove the debug banner
       routes: {
         '/newActivity': (context) => const NewActivity(),
       },
