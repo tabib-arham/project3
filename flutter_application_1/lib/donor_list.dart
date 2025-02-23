@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'donor_details.dart'; // Import the new page
 
 class DonorList extends StatelessWidget {
   const DonorList({super.key});
@@ -13,10 +14,10 @@ class DonorList extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-          donorCard('Tabib', 'O+'),
-          donorCard('Tasnim', 'O-'),
-          donorCard('Ali', 'B+'),
-          donorCard('Ana', 'AB-'),
+          donorCard(context, 'Tabib', 'O+', '017XXXXXXXX', 'Dhaka, Bangladesh', 'tabib@email.com'),
+          donorCard(context, 'Tasnim', 'O-', '018XXXXXXXX', 'Chittagong, Bangladesh', 'tasnim@email.com'),
+          donorCard(context, 'Ali', 'B+', '019XXXXXXXX', 'Sylhet, Bangladesh', 'ali@email.com'),
+          donorCard(context, 'Ana', 'AB-', '016XXXXXXXX', 'Rajshahi, Bangladesh', 'ana@email.com'),
         ],
       ),
     );
@@ -24,7 +25,7 @@ class DonorList extends StatelessWidget {
 }
 
 /// Function to create a donor card
-Widget donorCard(String name, String bloodGroup) {
+Widget donorCard(BuildContext context, String name, String bloodGroup, String mobile, String address, String email) {
   return Card(
     margin: const EdgeInsets.symmetric(vertical: 10),
     elevation: 4,
@@ -40,7 +41,19 @@ Widget donorCard(String name, String bloodGroup) {
       ),
       trailing: ElevatedButton(
         onPressed: () {
-          // Future action for "Details" button
+          // Navigate to DonorDetails page
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DonorDetails(
+                name: name,
+                bloodGroup: bloodGroup,
+                mobile: mobile,
+                address: address,
+                email: email,
+              ),
+            ),
+          );
         },
         style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
         child: const Text('Details', style: TextStyle(color: Colors.white)),
