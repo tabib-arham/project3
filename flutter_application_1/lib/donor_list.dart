@@ -13,10 +13,10 @@ class DonorList extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-          donorCard('John Doe', 'A+'),
-          donorCard('Jane Smith', 'O-'),
-          donorCard('Mike Johnson', 'B+'),
-          donorCard('Emily Davis', 'AB-'),
+          donorCard('Tabib', 'O+'),
+          donorCard('Tasnim', 'O-'),
+          donorCard('Ali', 'B+'),
+          donorCard('Ana', 'AB-'),
         ],
       ),
     );
